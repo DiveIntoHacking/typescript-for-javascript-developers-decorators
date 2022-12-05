@@ -1,7 +1,18 @@
 class User {
   name: string = 'Ham';
 
-  getName() {
-    return this.name;
+  @sampleDecorator
+  sayName(): void {
+    console.log(`My name is ${this.name}.`);
   }
+}
+
+function sampleDecorator(
+  target: any,
+  propertyKey: string,
+  descriptor: any
+): void {
+  console.log('target: ', target);
+  console.log('propertyKey: ', propertyKey);
+  console.log('descriptor: ', descriptor);
 }
